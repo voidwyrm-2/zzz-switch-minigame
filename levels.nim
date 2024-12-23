@@ -28,13 +28,13 @@ func canMoveToCell*(level: Level, playerPos: tuple[x, y: int], dir: Direction): 
 
   case dir:
   of Up:
-    isValid = if playerPos.y - 1 > -1: level.cells[playerPos.y][playerPos.x] != Empty else: false
+    isValid = if playerPos.y - 1 > -1: level.cells[playerPos.y - 1][playerPos.x] != Empty else: false
   of Down:
-    isValid = if playerPos.y + 1 < level.cells.len: level.cells[playerPos.y][playerPos.x] != Empty else: false
+    isValid = if playerPos.y + 1 < level.cells.len: level.cells[playerPos.y + 1][playerPos.x] != Empty else: false
   of Left:
-    isValid = if playerPos.x - 1 > -1: level.cells[playerPos.y][playerPos.x] != Empty else: false
+    isValid = if playerPos.x - 1 > -1: level.cells[playerPos.y][playerPos.x - 1] != Empty else: false
   of Right:
-    isValid = if playerPos.x + 1 < level.cells.len: level.cells[playerPos.y][playerPos.x] != Empty else: false
+    isValid = if playerPos.x + 1 < level.cells[playerPos.y].len: level.cells[playerPos.y][playerPos.x + 1] != Empty else: false
 
   isValid
 
